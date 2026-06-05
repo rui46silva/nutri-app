@@ -1,4 +1,4 @@
-name: Deploy FoodLog to GitHub Pages
+name: Deploy Nutri App to GitHub Pages
 
 on:
   push:
