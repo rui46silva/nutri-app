@@ -15,7 +15,6 @@ import {
   Utensils,
   X,
 } from "lucide-react";
-import { jsPDF } from "jspdf";
 
 const STORAGE_KEY = "nutrition-food-diary-v1";
 
@@ -472,7 +471,11 @@ export default function FoodDiaryApp() {
   };
 
   const exportPDF = async () => {
-    const days = selectedForExport.filter((date) => hasContent(entries[date])).sort();
+    const { jsPDF } = await import("jspdf");
+
+    const days = selectedForExport
+      .filter((date) => hasContent(entries[date]))
+      .sort();
 
     if (days.length === 0) {
       alert("Seleciona pelo menos um dia com registo para exportar.");
